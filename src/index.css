@@ -1,0 +1,103 @@
+/* Reset and main styling */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;  
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  width: 100%;
+  height: 155vh;
+  background-color: rgb(215, 136, 136);
+  position: relative;
+}
+
+.slider-container,
+.slider-container1,
+.slider-container2{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-container1 {
+  position: absolute;
+  top: 0;
+  z-index: 99;
+}
+.slider-container2 {
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+}
+
+.slider-image,
+.slider-image1,
+.slider-image2 {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.slider-image {
+  width: 40px;
+  height: 40px;
+  transform-origin: 250px 250px; /* Center of rotation for the first circle */
+  animation: rotate 20s infinite linear;
+}
+
+.slider-image1 {
+  width: 60px;
+  height: 60px;
+  transform-origin: 350px 350px; /* Center of rotation for the second circle */
+  animation: rotate1 20s infinite linear;
+}
+.slider-image2 {
+  width: 100px;
+  height: 100px;
+  transform-origin: 500px 500px; /* Center of rotation for the second circle */
+  animation: rotate2 20s infinite linear;
+}
+
+.slider-image img,
+.slider-image1 img ,
+.slider-image2 img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Keyframes for animations */
+@keyframes rotate {
+  0% {
+    transform: rotate(calc(var(--i) * 20deg)) translateX(180px) rotate(calc(-1 * var(--i) * 20deg));
+  }
+  100% {
+    transform: rotate(calc(var(--i) * 20deg + 360deg)) translateX(180px) rotate(calc(-1 * var(--i) * 20deg - 360deg));
+  }
+}
+
+@keyframes rotate1 {
+  0% {
+    transform: rotate(calc(var(--i) * 20deg)) translateX(300px) rotate(calc(-1 * var(--i) * 20deg)); /* Updated for 14 images */
+  }
+  100% {
+    transform: rotate(calc(var(--i) * 20deg + 360deg)) translateX(300px) rotate(calc(-1 * var(--i) * 20deg - 360deg)); /* Updated for 14 images */
+  }
+}
+
+@keyframes rotate2 {
+  0% {
+    transform: rotate(calc(var(--i) * 20deg)) translateX(440px) rotate(calc(-1 * var(--i) * 20deg)); /* Updated for 14 images */
+  }
+  100% {
+    transform: rotate(calc(var(--i) * 20deg + 360deg)) translateX(440px) rotate(calc(-1 * var(--i) * 20deg - 360deg)); /* Updated for 14 images */
+  }
+}
